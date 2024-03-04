@@ -17,8 +17,6 @@ export const FormContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    background-color: blue;
-
     form {
       width: 100%;
       display: flex;
@@ -63,10 +61,21 @@ export const FormContainer = styled.div`
     }
   }
 
-  div:nth-child(2) {
-    width: 100%;
-    height: 28.1875rem;
+  
+`;
 
-    background-color: red;
-  }
+export const TaksListContainer = styled.div`
+  width: 100%;
+  height: 28rem;
+  /* max-height: 28.1875rem; */
+
+  background-color: white;
+`;
+
+export const TaksListContainerHeader = styled.header`
+  background-color: blue;
+`;
+
+export const TaskListContainerTasks = styled.main`
+
 `;
