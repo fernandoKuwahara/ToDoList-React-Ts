@@ -1,31 +1,31 @@
-import { FormContainer, TaksListContainer, TaksListContainerHeader, TaskListContainerTasks } from "../../styles/Style-Components/Form/Form";
+import { FormContainer, FormHeader, TaskListContainer, TaskListContainerHeader, TaskListContainerTasks } from "../../styles/Style-Components/Form/Form";
 
 import { PlusCircle } from "phosphor-react";
 
 export function Form() {
   return (
     <FormContainer>
-      <div>
+      <FormHeader>
         <form >
           <input type="text" placeholder="Adicione uma nova tarefa" />
           <button type="submit" >Criar <PlusCircle size={ 22 }/></button>
         </form>
-      </div>
-      <TaksListContainer>
-        <TaksListContainerHeader>
+      </FormHeader>
+      <TaskListContainer>
+        <TaskListContainerHeader>
           <div>
-            <span>Tarefas Criadas</span>
+            <span>Tarefas criadas</span>
             <span>0</span>
           </div>
           <div>
             <span>Concluídas</span>
             <span>0 de 0</span>
           </div>
-        </TaksListContainerHeader>
+        </TaskListContainerHeader>
         <TaskListContainerTasks>
-
+          <h1>Ola munde</h1>
         </TaskListContainerTasks>
-      </TaksListContainer>
+      </TaskListContainer>
     </FormContainer>
   );
 }
