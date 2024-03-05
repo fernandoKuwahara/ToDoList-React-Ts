@@ -95,10 +95,17 @@ export const TaskListContainerHeader = styled.header`
   }
 `;
 
+export const SpanCountTask = styled.span`
+  color: ${ props => props.theme.White };
+  background-color: ${ props => props.theme["gray-400"] };
+  padding: .2rem .5rem;
+  border-radius: 999px;
+`;
+
 export const TaskListContainerTasks = styled.main`
   width: 100%;
-  height: 15.25rem;
   max-height: 15.25rem;
-
+  display: flex;
+  justify-content: center;
   border-top: 1px solid ${ props => props.theme["gray-400"] };
 `;

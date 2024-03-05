@@ -1,6 +1,23 @@
-import { FormContainer, FormHeader, TaskListContainer, TaskListContainerHeader, TaskListContainerTasks } from "../../styles/Style-Components/Form/Form";
+import { FormContainer, FormHeader, TaskListContainer, TaskListContainerHeader, TaskListContainerTasks, SpanCountTask } from "../../styles/Style-Components/Form/Form";
+import { Notice } from "../Notice/Notice";
+import { Task } from "../../services/interfaces/Task";
+
 
 import { PlusCircle } from "phosphor-react";
+import { v4 as uuidv4 } from "uuid";
+
+const Tasks: Task[] = [
+  {
+    id: uuidv4(),
+    taskDone: false,
+    content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem consequatur officiis delectus tempora repudiandae aspernatur? Sit voluptas harum in maiores? Expedita fugiat error, eaque illo veniam deserunt adipisci perferendis aspernatur."
+  },
+  {
+    id: uuidv4(),
+    taskDone: false,
+    content: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem consequatur officiis delectus tempora repudiandae aspernatur? Sit voluptas harum in maiores? Expedita fugiat error, eaque illo veniam deserunt adipisci perferendis aspernatur."
+  }
+];
 
 export function Form() {
   return (
@@ -15,15 +32,17 @@ export function Form() {
         <TaskListContainerHeader>
           <div>
             <span>Tarefas criadas</span>
-            <span>0</span>
+            <SpanCountTask>0</SpanCountTask>
           </div>
           <div>
             <span>Concluídas</span>
-            <span>0 de 0</span>
+            <SpanCountTask>0 de 0</SpanCountTask>
           </div>
         </TaskListContainerHeader>
         <TaskListContainerTasks>
-          <h1>Ola munde</h1>
+          {
+            
+          }
         </TaskListContainerTasks>
       </TaskListContainer>
     </FormContainer>
