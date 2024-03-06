@@ -35,6 +35,9 @@ export const FormHeader = styled.header`
       background-color: ${ props => props.theme["gray-500"] };
       color: ${ props => props.theme.White };
       box-shadow: 0 0 0 2px transparent;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.4rem;
       transition: ease .1s;
 
       &:focus {
@@ -108,4 +111,5 @@ export const TaskListContainerTasks = styled.main`
   display: flex;
   justify-content: center;
   border-top: 1px solid ${ props => props.theme["gray-400"] };
+  border-radius: 8px;
 `;

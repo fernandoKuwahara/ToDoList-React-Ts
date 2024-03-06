@@ -1,12 +1,13 @@
 import { FormContainer, FormHeader, TaskListContainer, TaskListContainerHeader, TaskListContainerTasks, SpanCountTask } from "../../styles/Style-Components/Form/Form";
 import { Notice } from "../Notice/Notice";
-import { Task } from "../../services/interfaces/Task";
+import { TaskProp } from "../../services/interfaces/Task";
+import { Task } from "../Task/Task";
 
 
 import { PlusCircle } from "phosphor-react";
 import { v4 as uuidv4 } from "uuid";
 
-const Tasks: Task[] = [
+const Tasks: TaskProp[] = [
   {
     id: uuidv4(),
     taskDone: false,
@@ -41,7 +42,7 @@ export function Form() {
         </TaskListContainerHeader>
         <TaskListContainerTasks>
           {
-            
+            !Tasks.length ? <Notice /> : <Task />
           }
         </TaskListContainerTasks>
       </TaskListContainer>
