@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { InputChecker } from "../../styles/Style-Components/Checkbox/Checkbox";
+import { CheckBoxProp } from "../../services/interfaces/Checkbox";
 
 import { Check } from "phosphor-react";
 
-export function CheckBox() {
-  const [isChecked, setIsChecked] = useState(false);
+export function CheckBox({ isChecked }: CheckBoxProp) {
+  const [isCheckedmarck, setIsCheckedmacrk] = useState(isChecked);
 
   function handleCheckTask() {
-    setIsChecked(!isChecked);
+    setIsCheckedmacrk(!isCheckedmarck);
   }
 
   return (
-    <InputChecker onClick={handleCheckTask} isChecked={ isChecked }>
+    <InputChecker onClick={handleCheckTask} isChecked={ isCheckedmarck }>
       { isChecked ? <Check size={ 20 } /> : "" }
     </InputChecker>
   );

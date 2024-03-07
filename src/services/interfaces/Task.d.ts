@@ -1,5 +1,9 @@
+export type id = string;
+
 export interface TaskProp {
-  id: string;
-  taskDone: boolean;
+  id: id;
+  isTaskDone: boolean;
   content: string;
+  onDeleteTask: (id: string) => void;
+  onDoneTask?: (id: string) => void;
 }

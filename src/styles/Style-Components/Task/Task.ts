@@ -13,11 +13,13 @@ export const TaskContainer = styled.div`
   border-radius: 8px;
 
   span {
+    flex: 1;
+    text-align: justify;
     color: ${ props => props.theme["gray-100"] };
     font-size: 14px;
     font-weight: 400;
     line-height: 19.6px;
-    max-width: 36.5rem;
+    max-width: 36rem;
   }
 
   button {

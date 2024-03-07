@@ -9,7 +9,6 @@ export const InputChecker = styled.div<InputCheckerProp>`
   min-height: 1.2rem;
   max-width: 1.2rem;
   max-height: 1.2rem;
-  margin-top: .25rem;
   display: flex;
   justify-content: center;
   align-items: center;

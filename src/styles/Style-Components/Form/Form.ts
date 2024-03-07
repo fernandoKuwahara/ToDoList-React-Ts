@@ -26,7 +26,7 @@ export const FormHeader = styled.header`
     gap: .5rem;
     flex-wrap: wrap;
 
-    input {
+    textarea {
       flex: 1;
       height: 3.375rem;
       padding: 1rem;
@@ -39,6 +39,8 @@ export const FormHeader = styled.header`
       font-weight: 400;
       line-height: 1.4rem;
       transition: ease .1s;
+      resize: none;
+      overflow: hidden;
 
       &:focus {
         box-shadow: 0 0 0 2px ${ props => props.theme["purple-500"] };
@@ -67,8 +69,7 @@ export const FormHeader = styled.header`
 
 export const TaskListContainer = styled.div`
   width: 100%;
-  height: 18rem;
-  max-height: 18rem;
+  max-height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,9 +108,9 @@ export const SpanCountTask = styled.span`
 
 export const TaskListContainerTasks = styled.main`
   width: 100%;
-  max-height: 15.25rem;
+  max-height: 44rem;
+  overflow: auto;
   display: flex;
-  justify-content: center;
-  border-top: 1px solid ${ props => props.theme["gray-400"] };
-  border-radius: 8px;
+  flex-direction: column;
+  gap: .75rem;
 `;
