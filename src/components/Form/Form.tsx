@@ -6,7 +6,7 @@ import { TaskProp, id } from "../../services/interfaces/Task";
 
 import { PlusCircle } from "phosphor-react";
 import { v4 as uuidv4 } from "uuid";
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useEffect, useState } from "react";
 
 export function Form() {
   const [tasks, setTasks] = useState<TaskProp[]>([]);
@@ -14,21 +14,34 @@ export function Form() {
   const [numberTasks, setNumberTasks] = useState(0);
   const [numberTasksDone, setNumberTasksDone] = useState(0);
 
+  useEffect(() => {
+    handleCountTaskDones(tasks);
+  }, [tasks]);
+
   function handleCreateTask(e: FormEvent): void {
     e.preventDefault();
 
     setTasks([...tasks, { id: uuidv4(), isTaskDone: false, content: taskContent }]);
 
-    handleCountTask();
+    setNumberTasks(numberTasks + 1);
+    setTaskContent("");
   }
 
-  function handleCountTask(): void {
-    setNumberTasks(numberTasks + 1);
+  function handleDeleteTask(id: id): void {
+    setTasks(tasks => tasks.filter(task => task.id !== id));
+    setNumberTasks(numberTasks - 1);
+  }
 
-    const tasksDone = tasks.filter(task => task.isTaskDone);
-    const numberDone = tasksDone.length;
+  function handleCountTaskDones(tasks: TaskProp[]): void {
+    const tasksDone = tasks.filter(task => {
+      return task.isTaskDone !== false;
+    });
 
-    setNumberTasksDone(numberDone);
+    setNumberTasksDone(tasksDone.length);
+  }
+
+  function handleDoneTask(id: string, status: boolean): void {
+    setTasks(tasks => tasks.map(task => (task.id === id ? { ...task, isTaskDone: status } : task)));
   }
 
   function handleNewTaskContent(e: ChangeEvent<HTMLTextAreaElement>): void {
@@ -39,16 +52,6 @@ export function Form() {
   function handleInvalidContentTask(e: InvalidEvent<HTMLTextAreaElement>): void {
     e.target.setCustomValidity("Este campo é obrigatório!");
   }
-
-  function handleDeleteTask(id: id): void {
-    const oldTasks = tasks.filter(task => task.id !== id);
-
-    setTasks(oldTasks);
-  }
-
-  // function handleDoneTask(id: id): void {
-
-  // }
 
   return (
     <FormContainer>
@@ -86,7 +89,7 @@ export function Form() {
                   isTaskDone={ task.isTaskDone }
                   content={ task.content }
                   onDeleteTask={ handleDeleteTask }
-                  
+                  onDoneTask={ handleDoneTask }
                 />
               )
           }

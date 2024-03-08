@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const TaskContainer = styled.div`
+import { TaskContainerProp } from "../../../services/interfaces/Task";
+
+export const TaskContainer = styled.div<TaskContainerProp>`
   width: 100%;
   height: 4.5rem;
   display: flex;
@@ -15,7 +17,8 @@ export const TaskContainer = styled.div`
   span {
     flex: 1;
     text-align: justify;
-    color: ${ props => props.theme["gray-100"] };
+    text-decoration: ${ props => props.isChecked ? "line-through" : "none" };
+    color: ${ props => props.isChecked ? props.theme["gray-300"] : props.theme["gray-100"] };
     font-size: 14px;
     font-weight: 400;
     line-height: 19.6px;

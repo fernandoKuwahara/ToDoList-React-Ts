@@ -8,7 +8,7 @@ export const FormContainer = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 4rem;
-  padding: 0 1rem;
+  padding: 0 1rem 1rem 1rem;
 `;
 
 export const FormHeader = styled.header`
@@ -28,6 +28,7 @@ export const FormHeader = styled.header`
 
     textarea {
       flex: 1;
+      min-width: 15.25rem;
       height: 3.375rem;
       padding: 1rem;
       border: 1px solid ${ props => props.theme["gray-700"] };
@@ -64,6 +65,12 @@ export const FormHeader = styled.header`
         background-color: ${ props => props.theme["blue-300"] };
       }
     }
+
+    @media (max-width: 768px) {
+      button {
+        flex: 1;
+      }
+    }
   }
 `;
 
@@ -82,6 +89,7 @@ export const TaskListContainerHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2.5rem;
+  gap: .75rem;
   flex-wrap: wrap;
 
   div:nth-child(1) {
